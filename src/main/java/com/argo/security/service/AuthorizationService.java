@@ -1,5 +1,6 @@
 package com.argo.security.service;
 
+import com.argo.security.UserIdentity;
 import com.argo.security.exception.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * Date: 13-11-17
  * Time: 上午10:02
  */
-public interface AuthorizationService<T> {
+public interface AuthorizationService<T extends UserIdentity> {
 
     /**
      * 验证Cookie的UserId
