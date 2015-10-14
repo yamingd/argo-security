@@ -11,7 +11,7 @@ import java.util.List;
 public class PasswordStrategyFactory {
 
 	@Autowired
-	@Qualifier("defaultPasswordService")
+	@Qualifier("defaultPasswordStrategy")
 	private PasswordStrategy defaultStrategy;
 
 	private List<PasswordStrategy> impls = new ArrayList<PasswordStrategy>();
@@ -19,7 +19,7 @@ public class PasswordStrategyFactory {
 	/**
 	 * 按照用户的标识来采用不同的密码服务.
 	 * @param modeId
-	 * @return
+	 * @return PasswordStrategy
 	 */
 	public PasswordStrategy get(int modeId){
 		for (PasswordStrategy item : impls) {

@@ -70,7 +70,7 @@ public class RequestCipher {
      * 对请求做签名
      * @param url
      * @param userId
-     * @return
+     * @return String
      */
     public static String sign(String url, String userId){
 

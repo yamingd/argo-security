@@ -27,7 +27,7 @@ public class AESProvider {
      * 加密手机号
      *
      * @param content 需要加密的内容
-     * @return
+     * @return String
      */
     public static String encrypt(String content) {
 
@@ -51,7 +51,7 @@ public class AESProvider {
 
     /**解密
      * @param content  待解密内容
-     * @return
+     * @return String
      */
     public static String decrypt(String content) {
 

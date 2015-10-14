@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
  * 在Cookie中存储当前用户标识.
  *
  * @author yaming_deng
- * @date 2012-6-11
  */
 public class SessionCookieHolder {
 
@@ -55,7 +54,7 @@ public class SessionCookieHolder {
 	/**
 	 * 获取当前用户的标识，可以为id(Long)或email(String)
 	 * @param request
-	 * @return
+	 * @return String
 	 * @throws UnauthorizedException
 	 */
 	public static String getCurrentUID(HttpServletRequest request)
@@ -138,7 +137,7 @@ public class SessionCookieHolder {
 	 * 获取当前的SessionId
 	 * @param request
 	 * @param response
-	 * @return
+	 * @return String
 	 * @throws UnauthorizedException
 	 */
 	public static String getCurrentSessionID(HttpServletRequest request, HttpServletResponse response){
@@ -157,7 +156,7 @@ public class SessionCookieHolder {
 	/**
 	 * @param request
 	 * @param name
-	 * @return
+	 * @return Cookie
 	 */
 	public static Cookie getCookie(HttpServletRequest request, String name){
 		Cookie cookie = WebUtils.getCookie(request, name);

@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 public abstract class AbstractPasswordStrategy implements PasswordStrategy, InitializingBean {
 	
 	@Autowired
-	@Qualifier("passwordServiceFactory")
+	@Qualifier("passwordStrategyFactory")
 	private PasswordStrategyFactory factory;
 	
 	@Override

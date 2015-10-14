@@ -14,7 +14,7 @@ public interface PasswordStrategy {
 	 * 生成加密密码，存放到数据库.
 	 * @param password
 	 * @param email
-	 * @return
+	 * @return String
 	 */
 	String encrypt(String password, String email);
 	
@@ -23,7 +23,7 @@ public interface PasswordStrategy {
 	 * @param password
 	 * @param email
 	 * @param hash
-	 * @return
+	 * @return boolean
 	 */
 	boolean validate(String password, String email, String hash) throws PasswordInvalidException;
 }

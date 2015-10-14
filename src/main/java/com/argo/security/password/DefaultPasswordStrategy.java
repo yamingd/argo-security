@@ -18,7 +18,7 @@ public class DefaultPasswordStrategy extends AbstractPasswordStrategy {
 	}
 
 	/**
-	 * @return
+	 * @return String
 	 */
 	private String getPasswordSecretSalt() {
         String secret = SecurityConfig.instance.getPasswdSalt();

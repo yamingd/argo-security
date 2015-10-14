@@ -13,7 +13,6 @@ import java.io.IOException;
  * CSRF攻击检查
  *
  * @author yaming_deng
- * @date 2012-5-23
  */
 public class CSRFTokenFilter implements Filter {
 
@@ -80,7 +79,7 @@ public class CSRFTokenFilter implements Filter {
 	/**
 	 * URL是否需要过滤掉.
 	 * @param request
-	 * @return
+	 * @return boolean
 	 */
 	private boolean isUrlFiltered(HttpServletRequest request){
 		if(this.filterUrls==null){

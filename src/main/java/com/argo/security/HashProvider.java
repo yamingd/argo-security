@@ -21,9 +21,9 @@ public class HashProvider {
     private static final String HMAC_SHA1 = "HmacSHA256";
 
     /**
-     *
+     * md5加密
      * @param value
-     * @return
+     * @return String
      */
     public static String md5(String value){
         HashFunction hf = Hashing.md5();
@@ -40,7 +40,7 @@ public class HashProvider {
     /**
      *
      * @param data
-     * @return
+     * @return String
      */
     public static String sha256(String data){
         HashFunction hf = Hashing.sha256();
@@ -52,7 +52,7 @@ public class HashProvider {
      * HMAC 256 with UTF-8 encoding
      * @param data
      * @param secret
-     * @return
+     * @return String
      */
     public static String hmac(String data, String secret) {
         byte[] byteHMAC = null;
