@@ -11,6 +11,7 @@ public class SecurityConfigTest {
     public void testLoad() throws Exception {
         SecurityConfig.load();
         System.out.println(SecurityConfig.instance);
+
     }
 
 }

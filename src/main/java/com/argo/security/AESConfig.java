@@ -5,6 +5,7 @@ package com.argo.security;
  */
 public class AESConfig {
 
+    private String seed;
     private String salt;
     private String iv;
 
@@ -22,6 +23,28 @@ public class AESConfig {
 
     public void setIv(String iv) {
         this.iv = iv;
+    }
+
+    public String getSeed() {
+        return seed;
+    }
+
+    public void setSeed(String seed) {
+        this.seed = seed;
+        if (null != seed) {
+            String md5 = HashProvider.md5(seed);
+            char[] tmp = new char[16];
+
+            for (int i = 0; i < 16; i++) {
+                tmp[i] = md5.charAt(i * 2);
+            }
+            this.salt = new String(tmp);
+
+            for (int i = 0; i < 16; i++) {
+                tmp[i] = md5.charAt(i * 2 + 1);
+            }
+            this.iv = new String(tmp);
+        }
     }
 
     @Override

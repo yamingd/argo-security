@@ -1,8 +1,7 @@
 passwdSalt: c318367d3ca2618819ec1dfb85ff32cb
 
 aes:
-  salt: 0vKUnrpaCvL9gHoO
-  iv: Oi973144334676oO
+  seed: a123456
 
 #session cookie
 cookie:
