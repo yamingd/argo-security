@@ -18,8 +18,8 @@ public class PasswordStrategyFactory {
 	
 	/**
 	 * 按照用户的标识来采用不同的密码服务.
-	 * @param modeId
-	 * @return PasswordStrategy
+	 * @param modeId 密码加密方式
+	 * @return PasswordStrategy 密码加密实现
 	 */
 	public PasswordStrategy get(int modeId){
 		for (PasswordStrategy item : impls) {
@@ -35,7 +35,7 @@ public class PasswordStrategyFactory {
 	}
 
 	/**
-	 * @return the defaultService
+	 * @return the defaultStrategy
 	 */
 	public PasswordStrategy getDefault() {
 		return defaultStrategy;

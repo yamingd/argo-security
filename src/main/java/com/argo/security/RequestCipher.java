@@ -19,10 +19,10 @@ public class RequestCipher {
 
     /**
      * 检查请求签名是否有效
-     * @param url
-     * @param userId
-     * @param sign0
-     * @throws PermissionDeniedException
+     * @param url 访问url
+     * @param userId 当前用户标示
+     * @param sign0 请求的签名
+     * @throws PermissionDeniedException 抛出访问拒接异常
      */
     public static void verify(String url, String userId, String sign0)
             throws PermissionDeniedException {
@@ -68,9 +68,9 @@ public class RequestCipher {
 
     /**
      * 对请求做签名
-     * @param url
-     * @param userId
-     * @return String
+     * @param url 访问URL
+     * @param userId 访问用户标示
+     * @return String 签名结果
      */
     public static String sign(String url, String userId){
 

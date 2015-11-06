@@ -15,9 +15,10 @@ public class CookieCipher {
 
     /**
      * 加密Cookie值.
-     * @param name
-     * @param value
-     * @return String
+     * @param name Cookie名称
+     * @param value Cookie值
+     * @return String 返回结果字符串
+     * @throws Exception 抛出异常
      */
     public static String encrypt(String name, String value) throws Exception {
         String secret = getCookieSecretSalt();
@@ -35,9 +36,11 @@ public class CookieCipher {
 
     /**
      * 解密Cookie值.
-     * @param name
-     * @param value
-     * @return String
+     * @param name Cookie名称
+     * @param value Cookie值
+     * @return String 解密结果
+     * @throws CookieInvalidException Cookie不正确异常
+     * @throws CookieExpiredException Cookie过期异常
      */
     public static String decrypt(String name, String value) throws CookieInvalidException, CookieExpiredException {
 //        if (logger.isDebugEnabled()){

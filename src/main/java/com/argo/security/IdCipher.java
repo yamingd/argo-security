@@ -40,7 +40,7 @@ public class IdCipher {
 
 	/**
 	 * contains alphanumerics, including both capitals and smalls, and the
-	 * following special chars: +"@*#%&/|()=?'~[!]{}-_:.,; (you might not be
+	 * following special chars, (you might not be
 	 * able to read all those using a browser!
 	 */
 	public static final char[] DICTIONARY_89 = new char[] { '0', '1', '2', '3',
@@ -77,6 +77,7 @@ public class IdCipher {
 	
 	/**
 	 * tester method.
+	 * @param args 参数列表
 	 */
 	public static void main(String[] args) {
 		String original = "-123";

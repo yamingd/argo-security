@@ -53,9 +53,11 @@ public class SessionCookieHolder {
 	
 	/**
 	 * 获取当前用户的标识，可以为id(Long)或email(String)
-	 * @param request
-	 * @return String
-	 * @throws UnauthorizedException
+	 * @param request 当前请求
+	 * @return String 用户标示
+	 * @throws UnauthorizedException 不通过校验异常
+	 * @throws CookieInvalidException Cookie数据不正确异常
+	 * @throws CookieExpiredException Cookie过期异常
 	 */
 	public static String getCurrentUID(HttpServletRequest request)
 			throws UnauthorizedException, CookieInvalidException, CookieExpiredException {
@@ -66,6 +68,15 @@ public class SessionCookieHolder {
 
 	}
 
+	/**
+	 *
+	 * @param request HTTP请求
+	 * @param authCookieId Cookie名称
+	 * @return String Cookie值
+	 * @throws UnauthorizedException 不通过校验异常
+	 * @throws CookieInvalidException Cookie数据不正确异常
+	 * @throws CookieExpiredException Cookie过期异常
+	 */
     public static String getCurrentUID(HttpServletRequest request, String authCookieId)
 			throws UnauthorizedException, CookieInvalidException, CookieExpiredException {
 
@@ -90,9 +101,9 @@ public class SessionCookieHolder {
     }
 
 	/**
-	 *
-	 * @param response
-	 * @param uid
+	 * 保存请求用户Cookie
+	 * @param response 请求响应
+	 * @param uid 用户标示
 	 */
     public static void setCurrentUID(HttpServletResponse response, String uid){
         String name = getAuthCookieId();
@@ -101,10 +112,10 @@ public class SessionCookieHolder {
     }
 
 	/**
-	 *
-	 * @param response
-	 * @param uid
-	 * @param name
+	 * 保存请求Cookie
+	 * @param response 请求响应对象
+	 * @param uid 用户标示
+	 * @param name Cookie值
 	 */
     public static void setCurrentUID(HttpServletResponse response, String uid, String name) {
         String value = null;
@@ -118,7 +129,7 @@ public class SessionCookieHolder {
 
 	/**
 	 *
-	 * @param response
+	 * @param response 请求响应对象
 	 */
     public static void removeCurrentUID(HttpServletResponse response){
         String name = getAuthCookieId();
@@ -127,18 +138,17 @@ public class SessionCookieHolder {
 
 	/**
 	 *
-	 * @param response
-	 * @param name
+	 * @param response 请求响应对象
+	 * @param name 请求Cookie名称
 	 */
     public static void removeCurrentUID(HttpServletResponse response, String name){
         setCookie(response, name, "", 0);
     }
 	/**
 	 * 获取当前的SessionId
-	 * @param request
-	 * @param response
-	 * @return String
-	 * @throws UnauthorizedException
+	 * @param request 请求对象
+	 * @param response 请求响应对象
+	 * @return String 当前用户SessionId
 	 */
 	public static String getCurrentSessionID(HttpServletRequest request, HttpServletResponse response){
 		Cookie cookie = WebUtils.getCookie(request, getSessionCookieId());
@@ -154,9 +164,9 @@ public class SessionCookieHolder {
 	}
 	
 	/**
-	 * @param request
-	 * @param name
-	 * @return Cookie
+	 * @param request 请求对象
+	 * @param name Cookie名称
+	 * @return Cookie Cookie实例
 	 */
 	public static Cookie getCookie(HttpServletRequest request, String name){
 		Cookie cookie = WebUtils.getCookie(request, name);
@@ -164,9 +174,9 @@ public class SessionCookieHolder {
 	}
 	
 	/**
-	 * @param response
-	 * @param name
-	 * @param value
+	 * @param response 请求响应对象
+	 * @param name Cookie名称
+	 * @param value Cookie值
 	 */
 	public static void setCookie(HttpServletResponse response, String name, String value){
         String domain = getConfig().getDomain();
@@ -177,10 +187,10 @@ public class SessionCookieHolder {
 	}
 	
 	/**
-	 * @param response
-	 * @param name
-	 * @param value
-	 * @param expireSeconds
+	 * @param response 请求响应对象
+	 * @param name Cookie名称
+	 * @param value Cookie值
+	 * @param expireSeconds Cookie过期时间(秒)
 	 */
 	public static void setCookie(HttpServletResponse response, String name, String value, Integer expireSeconds){
 		String domain = getConfig().getDomain();

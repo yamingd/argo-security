@@ -22,8 +22,8 @@ public class HashProvider {
 
     /**
      * md5加密
-     * @param value
-     * @return String
+     * @param value 明文文本
+     * @return String HASH后的文本
      */
     public static String md5(String value){
         HashFunction hf = Hashing.md5();
@@ -38,9 +38,9 @@ public class HashProvider {
     }
 
     /**
-     *
-     * @param data
-     * @return String
+     * SHA256
+     * @param data 明文文本
+     * @return String 摘要文本
      */
     public static String sha256(String data){
         HashFunction hf = Hashing.sha256();
@@ -50,9 +50,9 @@ public class HashProvider {
 
     /**
      * HMAC 256 with UTF-8 encoding
-     * @param data
-     * @param secret
-     * @return String
+     * @param data 明文文本
+     * @param secret 加密私钥
+     * @return String 摘要文本
      */
     public static String hmac(String data, String secret) {
         byte[] byteHMAC = null;
