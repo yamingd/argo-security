@@ -43,9 +43,9 @@ public class CookieCipher {
      * @throws CookieExpiredException Cookie过期异常
      */
     public static String decrypt(String name, String value) throws CookieInvalidException, CookieExpiredException {
-//        if (logger.isDebugEnabled()){
-//            logger.debug("{}:{}", name, value);
-//        }
+        if (logger.isDebugEnabled()){
+            logger.debug("{}:{}", name, value);
+        }
         Integer days = SecurityConfig.instance.getCookie().getAge();
         if (days==null){
             days = 30;
